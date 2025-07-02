@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ManoKoduˏˋ°•*⁀➷</title>
+<link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+body {
+background-color: #000;
+}
+
+* {cursor: url(paw.gif), auto !important;}
+
+.my-player {
+    position: relative;
+    width: 340px;
+    min-width: 340px;
+    height: 430px;
+    max-height: 430px;
+    min-height: 60px;
+    outline: 4px solid #564b39;
+    border-radius: 8px;
+    background-color: #a49275;
+    margin-left: auto;
+    margin-right: auto; 
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.my-player::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
+.my-player::-webkit-scrollbar-track {
+    display: none;
+    background: transparent;
+}
+
+.my-player::-webkit-scrollbar-thumb {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+}
+
+.title {
+    font-family: verdana;
+    letter-spacing: 9px;
+    font-size: 15px;
+    color: #efece7;
+    top: 0; 
+    left: 28%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    text-shadow: 
+    1px 1px 0px #564b39,
+    1px 0px 0px #564b39;
+}
+
+.stars {
+    position: absolute;
+    display: flex;
+    top: 2px;
+    right: 3px;
+    color: #efece7;
+}
+
+.stars span {
+    display: inline-block;
+    font-size: 13px;
+    background: none;
+}
+
+.stars2 {
+    position: absolute;
+    display: flex;
+    top: 2px;
+    left: 3px;
+    color: #efece7;
+}
+
+.stars2 span {
+    display: inline-block;
+    font-size: 13px;
+    background: none;
+}
+
+.time {
+    position: absolute;
+    top: 22px;
+    left: 10px;
+    margin: 0;
+    width: 110px;
+    height: 55px;
+    background-image: url('ea30-bg-slantstripe.gif');
+    outline: 3px solid #564b39;
+    border: 2px solid #efece7;
+    border-radius: 8px;
+}
+
+#leftbox {
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    left: 2px;
+    top: 0;
+    color: #efece7;
+    font-family: verdana;
+    font-size: 9px;
+}
+
+#leftbox span {
+    display: block;
+    margin-left: 3px;
+    margin-top: 2px;
+}
+
+#currentTime {
+    font-size: 18px;
+    font-family: verdana;
+    color: #efece7;
+    padding: 3px;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+#decorationPlay {
+    font-size: 26px;
+    font-family: verdana;
+    color: #efece7;
+    padding: 0;
+    top: -5px;
+    left: 20px;
+    position: absolute;
+}
+
+#playingWaves {
+    font-size: 10px;
+    font-family: 'Tangerine', cursive;
+    color: #efece7;
+    border-radius: 8px;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    left: 20px;
+    position: absolute;
+}
+
+.current-track {
+    width: 200px;
+    height: 20px;
+    top: 22px; 
+    right: 7px;    
+    font-family: 'Roboto Mono', verdana;
+    font-size: 11px;
+    color: #efece7;
+    background-image: url('ea30-bg-slantstripe.gif');
+    outline: 3px solid #564b39;
+    border: 2px solid #efece7;
+    border-radius: 8px;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box; 
+    position: absolute;
+}
+
+.track-bg {
+    width: 200px;
+    height: 16px;
+}
+
+.current-track span {
+    display: inline-block;
+    padding-left: 100%;
+    margin: 0;
+    animation: scrollText 15s linear infinite; 
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.kbps, .kHz {
+    width: 19px;
+    height: 12px;
+    top: 50px;
+    right: 172px;
+    font-family: verdana;
+    font-size: 7px;
+    color: #efece7;
+    text-shadow: 
+    1px 1px 0px #564b39,
+    1px 0px 0px #564b39;
+    text-align: center;
+    background-color: transparent;
+    outline: 2px solid #564b39;
+    border: 2px solid #efece7;
+    border-radius: 8px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kHz {
+    right: 140px;
+}
+
+.hideequ, .hideply  {
+    width: 27px;
+    height: 23px;
+    top: 50px;
+    right: 40px;
+    font-family: verdana;
+    font-size: 9px;
+    color: #efece7;
+    text-shadow: 0 0 5px #fc0fc0, 0 0 25px #fc0fc0, 
+        0 0 50px #fc0fc0, 0 0 200px #fc0fc0;
+    text-align: left;
+    background-color: transparent;
+    background-image: url('pinkpaw.png');
+    background-repeat: no-repeat;
+    border: none;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hideply {
+    right: 10px;
+}
+
+.volumecontainer {
+    width: 36%;
+    top: 74px;
+    right: 84px;
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.volume_slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background-color: #efece7;
+}
+
+.volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 14px;
+  background-image: url('strawberry.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.volume_slider::-moz-range-thumb {
+  width: 12px;
+  height: 14px;
+  background-image: url('strawberry.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.leftrightcontainer {
+    width: 16%;
+    top: 74px;
+    right: 14px;
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.leftright_slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background-color: #f2fbfe;
+}
+
+.leftright_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 14px;
+  background-image: url('strawberry.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.leftright_slider::-moz-range-thumb {
+  width: 12px;
+  height: 14px;
+  background-image: url('strawberry.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.progress-bar {
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    right: 12px;
+    top: 97px;
+}
+
+.progress-slider {
+    -webkit-appearance: none;
+    width: 320px;
+    height: 3px;
+    background-color: #564b39;
+    border: none;
+    margin: 0;
+}
+
+progress {
+    background-color: none;
+    border: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #564b39;
+    width: 100%;
+    height: 2px;
+}
+
+progress::-webkit-progress-value {
+    background: none;
+}
+
+.progress-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 14px;
+    background-image: url('leaf.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+progress::-moz-progress-bar {
+    background-color: #564b39;
+    width: 100%;
+    height: 2px;
+}
+
+progress::-moz-progress-value {
+    background: none;
+}
+
+.progress-slider::-moz-slider-thumb {
+    width: 12px;
+    height: 14px;
+    background-image: url('leaf.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.controls {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    top: 98px;
+    left: 20px;
+}
+
+.btn {
+    background-color: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#prevBtn {
+    position: absolute;
+    background-image: url('meow.gif');
+    background-size: cover;
+
+}
+
+#playBtn {
+    position: absolute;
+    background-image: url('cake.gif');
+    background-size: cover;
+    transform: scaleX(-1);
+    left: 25px;
+}
+
+#pauseBtn {
+    position: absolute;
+    background-image: url('coffee.gif');
+    background-size: cover;
+    left: 50px;
+}
+
+#stopBtn {
+    position: absolute;
+    background-image: url('camera.gif');
+    background-size: cover;
+    left: 75px;
+}
+
+#nextBtn {
+    position: absolute;
+    background-image: url('cupcake.gif');
+    background-size: cover;
+    left: 100px;
+}
+
+#ejectBtn {
+    position: absolute;
+    background-image: url
+    background-size: cover;
+}
+
+#shuffleBtn {
+    position: absolute;
+    font-family: verdana;
+    font-size: 9px;
+    color: #efece7;
+    text-shadow: 0 0 5px #fc0fc0, 0 0 25px #fc0fc0, 
+        0 0 50px #fc0fc0, 0 0 200px #fc0fc0;
+    left: 200px;
+    top: 20px;
+}
+
+#loopBtn {
+    position: absolute;
+    font-family: verdana;
+    font-size: 9px;
+    color: #efece7;
+    text-shadow: 0 0 5px #fc0fc0, 0 0 25px #fc0fc0, 
+        0 0 50px #fc0fc0, 0 0 200px #fc0fc0;
+    left: 230px;
+    top: 20px;
+}
+
+
+.playlist-container {
+    width: 100%;
+    height: 150px;
+    background-image: url('ea30-bg-slantstripe.gif');
+    outline: 3px solid #564b39;
+    border: 2px solid #efece7;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.playlist-title {
+    background-color: none;
+    color: #efece7;
+    text-shadow: 
+       1px 1px 0px #564b39,
+       1px 0px 0px #564b39;
+    font-family: verdana;
+    font-size: 18px;
+    padding: 0;
+    top: 0;
+    text-align: center;
+    border: none;
+    z-index: 2;
+}
+
+.mini {
+    position: absolute;
+    display: flex;
+    top: 3px;
+    right: 3px;
+    color: #564b39;
+}
+
+.mini span {
+    display: inline-block;
+    font-size: 16px;
+    background: none;
+    margin-right: 3px;
+}
+
+.playlist {
+    width: 330px;
+    height: 61px;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 56px;
+    box-sizing: border-box;
+}
+
+.playlist ul {
+    background: none;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.playlist li {
+    background: #efece7;
+    color: #564b39;
+    border-left: 1px solid #564b39;
+    border-right: 1px solid #564b39;
+    font-family: verdana;
+    font-size: 11px;
+    padding: 1px;
+    margin-left: 14px;
+    margin-right: 11px;
+    text-decoration: none;
+    vertical-align: middle;
+    text-align: left !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.playlist li:hover {
+    background: #564b39;
+    color: #efece7;
+}
+
+.playlist li.active {
+    color: #fc0fc0;
+    background: #efece7;
+}
+
+.playlist::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url('leaf.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.playlist::-moz-scrollbar {
+    appearance: none;
+}
+
+.playlist::-moz-scrollbar-track {
+    background: transparent;
+}
+
+.playlist::-moz-scrollbar-thumb {
+    background-image: url('leaf.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.playlist-footer {
+    position: absolute;
+    display: flex;
+    align-items: center; 
+    width: 95%;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 7px;
+    margin: 8px;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.button2 {
+    position: relative;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+    margin: 4px;
+    left: 0;
+    bottom: -5px;
+    padding: 5px;
+    background-color: #564b39;
+    box-shadow: 
+    2px 2px 0px #efece7,
+    2px 0px 0px #efece7;
+}
+
+.button3 {
+    position: absolute;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+    right: 30px;
+    bottom: 5px;
+    padding: 5px;
+    background-color: #564b39;
+    box-shadow: 
+    2px 2px 0px #efece7,
+    2px 0px 0px #efece7;
+}
+
+.fb-text {
+    margin: 0; 
+    padding: 0; 
+    font-family: verdana;
+    font-size: 11px;
+    color: #efece7;
+    background: transparent; 
+    line-height: 0.9;
+}
+
+.time-container {
+    position: absolute;
+    height: 14px;
+    left: 160px;
+    bottom: 20px;
+    background-color: #564b39;
+    border: 1px solid #efece7;
+}
+
+.f-time {
+    font-family: verdana;
+    font-size: 11px;
+    color: #efece7;
+}
+
+.pl-f-icons {
+    font-family: verdana;
+    color: #efece7;
+    font-size: 11px;
+    position: absolute;
+    left: 160px;
+    bottom: 6px;
+}
+
+.corner {
+    position: absolute;
+    bottom: 30px;
+    right: -1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll-arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+
+.up {
+    border-bottom: 6px solid #efece7;
+    margin-bottom: 1px;
+    background: linear-gradient(to top right, white, black);
+}
+
+.down {
+    border-top: 6px solid #efece7;
+    margin-top: 1px;
+    background: linear-gradient(to bottom right, white, black);
+}
+
+.expander {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #efece7;
+    position: absolute;
+    bottom: 0;
+    right: -6px;
+    margin: 0;
+    background: repeating-linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.8) 2px,
+        transparent 2px,
+        transparent 4px);
+    transform: rotate(-45deg);
+    z-index: 100; 
+}
+
+.equalizer {
+    display: flex;
+    position: absolute;
+    bottom: 164px;
+    background-image: url('ea30-bg-slantstripe.gif');
+    outline: 3px solid #564b39;
+    border: 2px solid #efece7;
+    border-radius: 8px;
+    margin: 0;
+    padding-left: 45px;
+    width: 100%;
+    height: 115px;
+    box-sizing: border-box;
+}
+
+#kitty {
+    position: absolute;
+    right: 0;
+    top: -40px;
+}
+
+.section {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.sliders {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.range-slider {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 135px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+.param {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-family: verdana;
+    font-size: 9px;
+    color: #efece7;
+    text-shadow: 
+    1px 1px 0px #564b39,
+    1px 0px 0px #564b39;
+    letter-spacing: 1px;
+    margin: 0; 
+}
+
+.vertical {
+    transform: rotateZ(-90deg);
+    width: 80px;
+    margin: 5px;
+}
+
+.vertical::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 14px;
+  background-color: #efece7;
+  border: 1px solid #564b39;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+.vertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 14px;
+    width: 12px;
+    background-image: url('strawberry.gif');
+    background-size: cover;
+    transform: rotateZ(90deg);
+    margin-top: -1px;
+    position: relative;
+}
+
+.vertical::-moz-range-thumb {
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    background: #ffc2a0;
+    border: none;
+    margin-top: -4px;
+}
+
+
+</style>
+</head>
+<body>
+<div class="my-player">
+ <div class="expander"></div>
+
+	<div class="title">hi.cute</div>
+	<div class="stars"><span><img src="leaf.gif"></span></div>
+	<div class="stars2"><span><img src="leaf.gif"></span></div>
+
+	<div class="time">
+	<div id="leftbox"><span>c</span><span>u</span>
+	<span>t</span><span>e</span></div>
+	<span id="decorationPlay">♛</span>
+	<span id="currentTime">0:00</span>
+	<div id="playingWaves"><canvas id="canvas" width="120" height="26" style="width: 100px; height: 26px;"></canvas></div>
+	</div>
+
+	<div class="current-track">
+	<div class="track-bg">
+    	<span id="currentTrackTitle">◦•●◉✿c.u.t.i.e✿◉●•◦</span>
+	</div>
+	</div>
+
+	<div class="kbps">128</div>
+
+	<div class="kHz">44</div>
+
+	<button class="hideequ" onclick="toggleEQ()">EQ</button>
+
+	<button class="hideply" onclick="togglePlaylist()">PL</button>
+
+	<div class="volumecontainer">
+  	<input type="range" min="0" max="100" value="50" class="volume_slider" id="volumeSlider">
+	</div>
+
+	<div class="leftrightcontainer">
+  	<input type="range" min="-1" max="1" value="0" class="leftright_slider" id="pan">
+	</div>
+
+	<audio id="audio" preload="metadata"></audio>
+
+	<div class="progress-bar">
+  	<input type="range" class="progress-slider" id="songProgress" min="0" max="100" step="0.1" value="0">
+	</div>
+
+	<div class="controls">
+
+	<div class="btn" id="prevBtn"></div>
+
+	<div class="btn" id="playBtn"></div>
+        
+	<div class="btn" id="pauseBtn"></div>
+        
+	<div class="btn" id="stopBtn"></div>
+
+	<div class="btn" id="nextBtn"></div>
+
+
+	<div class="btn" id="ejectBtn"></div>
+
+	<div class="btn" id="shuffleBtn">shuf</div>
+
+	<div class="btn" id="loopBtn">loop</div>
+	
+	</div> <!-- end of controls -->
+
+<div id="hideeq">
+<div class="equalizer">
+	<img id="kitty" src="kot.gif">
+
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="4700" max="22000" step="100" value="4700" data-filter="highShelf" data-param="frequency">
+        <span class="param">70</span>  
+      </div>
+  
+      <div class="range-slider">
+        <input type="range" class="vertical" min="-50" max="50" value="50" data-filter="highShelf" data-param="gain">
+        <span class="param">180</span>  
+      </div>
+    </div>
+  </div>
+    
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="35" max="220" step="1" value="35" data-filter="lowShelf" data-param="frequency">
+        <span class="param">320</span>  
+      </div>
+
+      <div class="range-slider">
+        <input type="range" class="vertical" min="-50" max="50" value="50" data-filter="lowShelf" data-param="gain">
+        <span class="param">600</span>  
+      </div>
+    </div>
+  </div>
+      
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="800" max="5900" step="100" value="800" data-filter="highPass" data-param="frequency">
+        <span class="param">1k</span>  
+      </div>
+
+      <div class="range-slider">
+        <input type="range" class="vertical" min="0.7" max="12" step="0.1" value="0.7" data-filter="highPass" data-param="Q">
+        <span class="param">3k</span>  
+      </div>
+    </div>
+  </div>  
+    
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="80" max="1600" step="10" value="880" data-filter="lowPass" data-param="frequency">
+        <span class="param">6k</span>  
+      </div>
+
+      <div class="range-slider">
+        <input type="range" class="vertical" min="0.7" max="12" step="0.1" value="0.7" data-filter="lowPass" data-param="Q">
+        <span class="param">12k</span>  
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="80" max="1600" step="10" value="880" data-filter="lowPass" data-param="frequency">
+        <span class="param">14k</span>  
+      </div>
+
+      <div class="range-slider">
+        <input type="range" class="vertical" min="0.7" max="12" step="0.1" value="0.7" data-filter="lowPass" data-param="Q">
+        <span class="param">16k</span>  
+      </div>
+    </div>
+  </div>
+  
+</div> <!-- end of equalizer -->
+
+</div> <!-- end of hideeq -->
+
+<div id="hidepl">
+<div class="playlist-container">
+<div class="playlist-title">かわいい</div>
+<div class="mini"><span><img src="arrows.gif"></span> 
+ <div class="resize"> <span class="maximize">ᗢ</span> </div>
+</div>
+
+ <div class="playlist">
+      <ul id="playlist">
+       <li data-title="1. GUMI - Catch You Catch Me" data-src="https://m.manokodu.net/music/catchyou.mp3">1. GUMI - Catch You Catch Me <span class="track-length">3:44</span></li>
+       <li data-title="2. ANZA - Tobira Wo Akete" data-src="https://m.manokodu.net/music/tobira_wo_akete.mp3">2. ANZA - Tobira Wo Akete <span class="track-length">4:40</span></li>
+       <li data-title="3. Chihiro - Honey" data-src="https://m.manokodu.net/music/honey.mp3">3. Chihiro - Honey <span class="track-length">4:18</span></li>
+       <li data-title="4. OST - Sawayakana Asa" data-src="https://m.manokodu.net/music/sawayakana_asa.mp3">4. OST - Sawayakana Asa <span class="track-length">2:44</span></li>
+       <li data-title="5. OST - Shiawase no Sakura Namiki" data-src="https://m.manokodu.net/music/shiawase_no_sakura_namiki.mp3">5. OST - Shiawase no Sakura Namiki <span class="track-length">2:25</span></li>
+       <li data-title="6. Kohmi Hirose - Groovy!" data-src="https://m.manokodu.net/music/groovy.mp3">6. Kohmi Hirose - Groovy! <span class="track-length">4:22</span></li>
+       <li data-title="7. Sakura Tange - Prism" data-src="https://m.manokodu.net/music/prism.mp3">7. Sakura Tange - Prism <span class="track-length">4:41</span></li>
+       <li data-title="8. Maaya Sakamoto - Purachina Platinum" data-src="https://m.manokodu.net/music/purachina_platinum.mp3">8. Maaya Sakamoto - Purachina Platinum <span class="track-length">4:08</span></li>
+       <li data-title="9. Junko Iwao - Yasashisa no Tane" data-src="https://m.manokodu.net/music/yasashisa_no_tane.mp3">9. Junko Iwao - Yasashisa no Tane <span class="track-length">4:17</span></li>
+       <li data-title="10. Yukana Nogami - Kocchi wo Muite" data-src="https://m.manokodu.net/music/kocchi_wo_muite.mp3">10. Yukana Nogami - Kocchi wo Muite <span class="track-length">4:31</span></li>
+       <li data-title="11. Sakura&Kero-chan - Zutto Zutto Zutto" data-src="https://m.manokodu.net/music/zutto_zutto_zutto.mp3">11. Sakura&Kero-chan - Zutto Zutto Zutto <span class="track-length">4:37</span></li>
+       <li data-title="12. GUMI - Hitorijime" data-src="https://m.manokodu.net/music/hitorijime.mp3">12. GUMI - Hitorijime <span class="track-length">4:23</span></li>
+     </ul>
+
+	</div> <!-- playlist -->
+
+	<div class="playlist-footer">
+        	
+
+<div class="button2">
+    <span class="fb-text">+</span>
+    <span class="fb-text">file</span>
+</div>
+
+<div class="button2">
+    <span class="fb-text">-</span>
+    <span class="fb-text">file</span>
+</div>
+
+<div class="button2">
+    <span class="fb-text">sel</span>
+    <span class="fb-text">all</span>
+</div>
+
+<div class="button2">
+    <span class="fb-text">misc</span>
+    <span class="fb-text">opts</span>
+</div>
+
+
+<div class="time-container">
+
+	<div class="f-time">
+	<span id="totalTime">00:00</span>
+	<span class="fb-text">/</span>
+	<span id="totalPlaylistTime">51:34</span>
+	</div>
+</div>
+
+	<div class="pl-f-icons">
+	<i class="fas fa-step-backward"></i>
+	<i class="fas fa-play"></i>
+	<i class="fas fa-pause"></i>
+	<i class="fas fa-stop"></i>
+	<i class="fas fa-step-forward"></i>
+	<i class="fas fa-eject"></i>
+	</div>
+
+<div class="button3">
+  <span class="fb-text">Load</span> 
+  <span class="fb-text">List</span>
+</div>
+
+<div class="corner">
+    <div class="scroll-arrow up"></div>
+    <div class="scroll-arrow down"></div>
+</div>
+
+</div> <!-- end of playlist-footer -->
+
+</div> <!-- end of playlist-container -->
+
+</div> <!-- end of hidepl -->
+
+</div> <!-- end of my-player -->
+
+<script>
+
+document.querySelector('.mini span').addEventListener('click', function() {
+    const playlistContainer = document.querySelector('.playlist-container');
+    const playlist = document.querySelector('.playlist');
+    const footer = document.querySelector('.playlist-footer');
+
+    if (playlist.style.display === 'none') {
+        // Expand the container
+        playlist.style.display = 'block';
+        footer.style.display = 'flex';
+        playlistContainer.style.height = '150px';
+    } else {
+        // Minimize the container
+        playlist.style.display = 'none';
+        footer.style.display = 'none';
+        playlistContainer.style.height = '32px';
+    }
+});
+
+
+const expandButton = document.querySelector('.maximize'); // Button to double the height
+const resizeHandle = document.querySelector('.resize');
+const playlistContainer = document.querySelector('.playlist-container');
+const playlist = document.querySelector('.playlist');
+const footer = document.querySelector('.playlist-footer');
+
+let isResizing = false;
+let isExpanded = false;
+
+
+expandButton.addEventListener('click', function() {
+    if (!isExpanded) {
+        playlistContainer.style.height = '300px'; 
+        playlist.style.height = 'calc(100% - ' + (footer.offsetHeight + 30) + 'px)';
+        isExpanded = true;
+    } else {
+        playlistContainer.style.height = '150px';
+        playlist.style.height = '61px';
+        isExpanded = false;
+    }
+});
+
+
+resizeHandle.addEventListener('mousedown', function(e) {
+    isResizing = true;
+    document.body.style.cursor = 'se-resize';
+});
+
+document.addEventListener('mousemove', function(e) {
+    if (!isResizing) return;
+
+   
+    const newHeight = window.innerHeight - e.clientY - footer.offsetHeight;
+
+
+    if (newHeight > 54) {
+        playlistContainer.style.height = newHeight + 'px';
+        playlist.style.height = newHeight - footer.offsetHeight - 30 + 'px'; 
+    }
+});
+
+document.addEventListener('mouseup', function() {
+    isResizing = false;
+    document.body.style.cursor = 'default';
+});
+
+
+
+function togglePlaylist() {
+  var x = document.getElementById("hidepl");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function toggleEQ() {
+  var x = document.getElementById("hideeq");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+const resizableDiv = document.querySelector(".my-player");
+  const expander = document.querySelector(".expander");
+
+  expander.addEventListener("mousedown", function (e) {
+    e.preventDefault();
+
+    const onMouseMove = (e) => {
+      const newHeight = e.clientY - resizableDiv.getBoundingClientRect().top;
+      if (newHeight >= 75 && newHeight <= 430) {
+        resizableDiv.style.height = `${newHeight}px`;
+      }
+    };
+
+    const onMouseUp = () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('audio');
+    const playlistItems = document.querySelectorAll('#playlist li');
+    const prevBtn = document.getElementById('prevBtn');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const shuffleBtn = document.getElementById('shuffleBtn');
+    const loopBtn = document.getElementById('loopBtn');
+    const currentTrackTitle = document.getElementById('currentTrackTitle');
+    const currentTime = document.getElementById('currentTime');
+    const totalTime = document.getElementById('totalTime');
+    const songProgress = document.getElementById('songProgress');
+    const volumeSlider = document.getElementById('volumeSlider');
+
+    let currentTrackIndex = 0;
+    let tracks = Array.from(playlistItems);
+    let isShuffle = false;
+    let isLoop = false;
+
+    function loadTrack(index) {
+        const selectedTrack = tracks[index];
+        if (!selectedTrack) return;
+
+    playlistItems.forEach(item => {
+        item.classList.remove('active');
+    });
+
+    selectedTrack.classList.add('active');
+
+        const songSrc = selectedTrack.getAttribute('data-src');
+        const songTitle = selectedTrack.getAttribute('data-title');
+
+        audio.src = songSrc;
+        audio.load();
+        audio.play().catch(error => {
+            console.error('Playback error:', error);
+        });
+
+        currentTrackTitle.textContent = songTitle;
+        updateUI();
+    }
+
+    function updateUI() {
+        if (!isNaN(audio.duration)) {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            songProgress.value = progress;
+            currentTime.textContent = formatTime(audio.currentTime);
+            totalTime.textContent = formatTime(audio.duration);
+        }
+    }
+
+    function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+
+    function playTrack(index) {
+        if (index < 0 || index >= tracks.length) return;
+        currentTrackIndex = index;
+        loadTrack(currentTrackIndex);
+    }
+
+    playlistItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            playTrack(index);
+        });
+    });
+
+    audio.addEventListener('timeupdate', updateUI);
+
+    audio.addEventListener('ended', () => {
+        if (isLoop) {
+            loadTrack(currentTrackIndex); // Repeat the same track in loop mode
+        } else {
+            currentTrackIndex = isShuffle 
+                ? Math.floor(Math.random() * tracks.length) 
+                : (currentTrackIndex + 1) % tracks.length;
+            loadTrack(currentTrackIndex);
+        }
+    });
+
+    songProgress.addEventListener('input', () => {
+        const newTime = (songProgress.value / 100) * audio.duration;
+        audio.currentTime = newTime;
+    });
+
+    volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value / 100;
+    });
+
+    playBtn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            stopBlinking();
+        }
+    });
+
+    pauseBtn.addEventListener("click", () => {
+        if (!audio.paused) {
+            audio.pause();
+            blinkCurrentTime();
+        }
+    });
+
+    stopBtn.addEventListener('click', () => {
+        audio.pause();
+        audio.currentTime = 0;
+        songProgress.value = 0;
+        currentTime.textContent = formatTime(0);
+        currentTrackTitle.textContent = "◦•●◉✿c.u.t.i.e✿◉●•◦";
+        stopBlinking();
+	playlistItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    });
+
+    function blinkCurrentTime() {
+        currentTime.classList.add('blink');
+    }
+
+    function stopBlinking() {
+        currentTime.classList.remove('blink');
+    }
+
+ 
+    prevBtn.addEventListener('click', () => {
+        if (isShuffle) {
+            currentTrackIndex = Math.floor(Math.random() * tracks.length);
+        } else {
+            currentTrackIndex = (currentTrackIndex > 0) ? currentTrackIndex - 1 : tracks.length - 1;
+        }
+        loadTrack(currentTrackIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (isShuffle) {
+            currentTrackIndex = Math.floor(Math.random() * tracks.length);
+        } else {
+            currentTrackIndex = (currentTrackIndex < tracks.length - 1) ? currentTrackIndex + 1 : (isLoop ? 0 : currentTrackIndex);
+        }
+        loadTrack(currentTrackIndex);
+    });
+
+
+    shuffleBtn.addEventListener('click', () => {
+        isShuffle = !isShuffle;
+        shuffleBtn.classList.toggle('btn-active', isShuffle);
+    });
+
+    loopBtn.addEventListener('click', () => {
+        isLoop = !isLoop;
+        loopBtn.classList.toggle('btn-active', isLoop);
+    });
+
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        #currentTime.blink {
+            animation: blink 1s step-start infinite;
+        }
+        .btn-active {
+            background-image: url('leaf.gif');
+	    background-repeat: no-repeat;
+	    background-position: center top;
+        }
+    `;
+    document.head.appendChild(style);
+});
+    
+
+
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const audio = document.getElementById('audio');
+
+canvas.width = 100;
+canvas.height = 30;
+
+const barCount = 16;
+const spacing = 1;
+const totalSpacing = (barCount - 1) * spacing;
+const barWidth = Math.floor((canvas.width - totalSpacing) / barCount);
+const capHeight = 2;
+
+const capYPositions = new Array(barCount).fill(0);
+const currentHeights = new Array(barCount).fill(0);
+
+let isPlaying = false;
+
+function drawFakeBars() {
+  requestAnimationFrame(drawFakeBars);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < barCount; i++) {
+    const x = i * barWidth;
+
+    if (isPlaying) {
+      // Random target height
+      const targetHeight = Math.random() * canvas.height * 0.8 + 5;
+      currentHeights[i] += (targetHeight - currentHeights[i]) * 0.1;
+    } else {
+      // Gradually reduce bar height
+      currentHeights[i] -= 0.5;
+      if (currentHeights[i] < 0) currentHeights[i] = 0;
+    }
+
+    const y = canvas.height - currentHeights[i];
+
+    // Draw bar only if height > 0
+    if (currentHeights[i] > 0) {
+      const gradient = ctx.createLinearGradient(x, y, x, canvas.height);
+	gradient.addColorStop(0, '#ffffff');
+	gradient.addColorStop(0.5, '#ffffff');
+	gradient.addColorStop(1, '#ffffff');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(x, y, barWidth -2, currentHeights[i]);
+    }
+
+    // Cap logic: cap drops with bars, but always drawn
+    if (capYPositions[i] < currentHeights[i]) {
+      capYPositions[i] = currentHeights[i]; // Jump up
+    } else if (capYPositions[i] > currentHeights[i]) {
+      capYPositions[i] -= 0.4; // Fall slowly
+      if (capYPositions[i] < 0) capYPositions[i] = 0;
+    }
+
+    // Always draw the cap
+    ctx.fillStyle = '#fc0fc0';
+    ctx.fillRect(x, canvas.height - capYPositions[i] - capHeight, barWidth -2, capHeight);
+  }
+}
+
+audio.addEventListener('play', () => {
+  isPlaying = true;
+  drawFakeBars();
+});
+
+audio.addEventListener('pause', () => {
+  isPlaying = false;
+});
+
+audio.addEventListener('ended', () => {
+  isPlaying = false;
+});
+    
+
+</script>
+</body>
+</html>

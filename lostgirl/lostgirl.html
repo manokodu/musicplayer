@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ManoKoduˏˋ°•*⁀➷</title>
+<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+body {
+background-color: #000;
+}
+
+* {cursor: url(https://cur.cursors-4u.net/nature/nat-4/nat340.ani), url(https://cur.cursors-4u.net/nature/nat-4/nat340.png), auto !important;}
+
+.my-player {
+    position: relative;
+    width: 340px;
+    min-width: 340px;
+    height: 430px;
+    max-height: 430px;
+    min-height: 60px;
+    border: 3px solid #26cef2;
+    background-image: url('lostgirl.jpeg');
+    background-size: cover;
+    background-position: center center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.my-player::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
+.my-player::-webkit-scrollbar-track {
+    display: none;
+    background: transparent;
+}
+
+.my-player::-webkit-scrollbar-thumb {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+}
+
+.title {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 26px;
+    color: #8c22c1;
+    top: 0; 
+    left: 20%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 1px;
+    text-shadow: 2px 2px #f6c0da;
+}
+
+.time {
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    margin: 0;
+    width: 110px;
+    height: 55px;
+    background-color: #e1388b;
+    padding: 0;
+    border: 3px solid #26cef2;
+    border-radius: 4px;
+}
+
+#leftbox {
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    left: 2px;
+    top: 0;
+    color: #8c22c1;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 9px;
+    border-right: 3px solid #26cef2;
+}
+
+#leftbox span {
+    display: block;
+    margin-left: 3px;
+    margin-top: 2px;
+}
+
+#currentTime {
+    font-size: 25px;
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: #8c22c1;
+    padding: 3px;
+    top: -2px;
+    right: 0;
+    position: absolute;
+}
+
+#decorationPlay {
+    font-size: 12px;
+    font-family: 'Love Ya Like A Sister', 
+    font-weight: bold;
+    color: #8c22c1;
+    padding: 1px;
+    top: 5px;
+    left: 20px;
+    position: absolute;
+}
+
+#playingWaves {
+    font-size: 10px;
+    font-family: 'Love Ya Like A Sister', 
+    color: #8c22c1;
+    padding: 0;
+    bottom: 1px;
+    left: 20px;
+    position: absolute;
+}
+
+.current-track {
+    width: 200px;
+    height: 20px;
+    top: 30px; 
+    right: 4px;    
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: #8c22c1;
+    background-color: #e1388b;
+    border: 3px solid #26cef2;
+    border-radius: 4px;
+    margin: 5px;
+    padding: 0;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box; 
+    position: absolute;
+}
+
+.current-track span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 15s linear infinite; 
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-125%); }
+}
+
+.kbps, .kHz {
+    width: 19px;
+    height: 12px;
+    top: 60px;
+    right: 172px;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 9px;
+    color: #26cef2;
+    text-align: center;
+    background-color: #8c22c1;
+    border: 2px solid #e1388b;     
+    border-radius: 8px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kHz {
+    right: 140px;
+}
+
+.hideequ, .hideply {
+    width: 18px;
+    height: 18px;
+    top: 60px;
+    right: 50px;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 8px;
+    color: #8c22c1;
+    text-align: center;
+    background-color: #26cef2;
+    border: 2px solid #e1388b;     
+    border-radius: 8px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hideply {
+    right: 25px;
+}
+
+.volumecontainer {
+    width: 40%;
+    top: 80px;
+    right: 70px;
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.volume_slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border: 3px solid #26cef2;
+  border-radius: 4px;
+  background: #e1388b;
+  outline: none;
+}
+
+.volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #8c22c1;
+  border-radius: 50%;
+  background: #26cef2;
+}
+
+.volume_slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #8c22c1;
+  border-radius: 50%;
+  background: #26cef2;
+}
+
+.leftrightcontainer {
+    width: 16%;
+    top: 80px;
+    right: 14px;
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.leftright_slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border: 3px solid #26cef2;
+  border-radius: 4px;
+  background: #e1388b;
+  outline: none;
+}
+
+.leftright_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #8c22c1;
+  border-radius: 50%;
+  background: #26cef2;
+}
+
+.leftright_slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #8c22c1;
+  border-radius: 50%;
+  background: #26cef2;
+}
+
+.progress-bar {
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    right: 7px;
+    top: 105px;
+}
+
+.progress-slider {
+    -webkit-appearance: none;
+    width: 320px;
+    height: 5px;
+    border: 3px solid #e1388b;
+    border-radius: 8px;
+    background: #8c22c1;
+    margin: 0;
+}
+
+progress {
+    width: 320px;
+    height: 10px;
+}
+
+progress::-webkit-progress-bar {
+    width: 100%;
+    height: 100%;
+}
+
+progress::-webkit-progress-value {
+    background-color: #8c22c1;
+}
+
+.progress-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #26cef2;
+    border-radius: 50%;
+    background: #e1388b;
+    position: relative;
+}
+
+progress::-moz-progress-bar {
+    background-color: #e1388b;
+}
+
+progress::-moz-progress-value {
+    background-color: #8c22c1;
+}
+
+.progress-slider::-moz-range-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #8c22c1;
+    border-radius: 50%;
+    background: #26cef2;
+    position: relative;
+}
+
+.controls {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 200px;
+    height: 50px;
+    top: 105px;
+    left: 20px;
+    gap: 2px;
+}
+
+.button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 10px;
+    border: 3px solid #8c22c1;
+    border-radius: 4px;
+    background-color: #e1388b; 
+}
+
+.icon {
+    padding: 0;
+    border: none;
+    background-color: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: #26cef2;
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+}
+
+#shuffleBtn {
+    position: absolute;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 14px;
+    color: #26cef2;
+    left: 200px;
+    top: 20px;
+}
+
+#loopBtn {
+    position: absolute;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 14px;
+    color: #26cef2;
+    left: 250px;
+    top: 20px;
+}
+
+
+.playlist-container {
+    width: 100%;
+    height: 150px;
+    background-color: #26cef2; 
+    border-top: 3px solid #8c22c1;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.playlist-title {
+    background-color: #26cef2;
+    color: #8c22c1;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 14px;
+    font-weight: none;
+    padding: 0;
+    top: 0;
+    text-align: center;
+    border: none;
+}
+
+.mini {
+    position: absolute;
+    display: flex;
+    top: 1px;
+    right: 1px;
+    color: #8c22c1;
+}
+
+.mini span {
+    display: flex;
+    font-size: 8px;
+    background: none;
+    border: 1px solid #8c22c1;
+    margin-right: 3px;
+    padding: 3px;
+}
+
+.playlist {
+    width: 95%;
+    height: 62px;
+    background-color: #e1388b; 
+    border: 2px solid #8c22c1;
+    border-radius: 8px;
+    margin-left: 10px;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 55px;
+    box-sizing: border-box;
+}
+
+.playlist ul {
+    background: none;
+    padding: 0;
+    height: 24px;
+    margin: 0;
+    list-style-type: none;
+}
+
+.playlist li {
+    background: none;
+    color: #8c22c1;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 10px;
+    padding: 1px;
+    margin-left: 14px;
+    margin-right: 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+    text-align: left !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.playlist li:hover {
+    background: #8c22c1;
+    color: #26cef2;
+}
+
+.playlist li.active {
+    background: none;
+    color: #26cef2;
+}
+
+.playlist::-webkit-scrollbar {
+    width: 9px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #26cef2;
+    border: 3px solid #8c22c1;
+    border-radius: 8px;
+    width: 9px;
+    height: 9px;
+}
+
+.playlist::-webkit-scrollbar-thumb:hover {
+    background: #26cef2;
+}
+
+.playlist::-moz-scrollbar {
+    width: 9px;
+}
+
+.playlist::-moz-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.playlist::-moz-scrollbar-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #26cef2;
+    border: 3px solid #8c22c1;
+    border-radius: 50%;
+    width: 9px;
+    height: 9px;
+}
+
+.playlist::-moz-scrollbar-thumb:hover {
+    background: #26cef2;
+}
+
+.playlist-footer {
+    position: absolute;
+    display: flex;
+    align-items: center; 
+    width: 100%;
+    background-color: transparent;
+    padding: 8px;
+    border: none;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.button2 {
+    position: relative;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+}
+
+
+.button3 {
+    position: absolute;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+    right: 38px;
+    bottom: 20px;
+}
+
+.fb-text {
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 14px;
+    color: #8c22c1;
+    background: transparent; 
+    line-height: 0.6;
+}
+
+.time-container {
+    position: absolute;
+    left: 170px;
+    bottom: 25px;
+    background-color: #e1388b;
+    border: 2px solid #8c22c1;
+    border-radius: 6px;
+    padding: 1px;
+}
+
+.f-time {
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: #8c22c1;
+    font-size: 11px;
+}
+
+.pl-f-icons {
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: #8c22c1;
+    font-size: 11px;
+    left: 170px;
+    bottom: 10px;
+    position: absolute;
+}
+
+.expander {
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 11px solid #8c22c1;
+    position: absolute;
+    bottom: -2px;
+    right: -6px;
+    margin: 0;
+    background: linear-gradient(to bottom right, #8c22c1, black);
+    transform: rotate(-45deg);
+    z-index: 100; 
+}
+
+.equalizer {
+    display: flex;
+    position: absolute;
+    bottom: 164px;
+    background: transparent;
+    margin: 0;
+    padding-left: 45px;
+    width: 100%;
+    height: 115px;
+    box-sizing: border-box;
+}
+
+.section {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.sliders {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.range-slider {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 135px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+.param {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 9px;
+    color: #8c22c1;
+    text-shadow: 1px 1px #26cef2;
+    margin: 0; 
+}
+
+.vertical {
+    transform: rotateZ(-90deg);
+    width: 80px;
+    margin: 5px;
+}
+
+.vertical::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12px;
+    background: #e1388b;
+    border: 2px solid #8c22c1;
+    border-radius: 8px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+.vertical::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    background: #8c22c1;
+    border: 2px solid #26cef2;
+    border-radius: 8px;
+    margin-top: -2px;
+    position: relative;
+}
+
+.vertical::-moz-range-thumb {
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    background: #8c22c1;
+    border: 2px solid #26cef2;
+    border-radius: 8px;
+    margin-top: -2px;
+    position: relative;
+}
+
+
+</style>
+</head>
+<body>
+<div class="my-player">
+ <div class="expander"></div>
+
+	<div class="title">°•❀ Lost Girl ❀•°</div>
+	<div class="time">
+	<div id="leftbox"><span>g</span><span>i</span>
+	<span>r</span><span>l</span></div>
+	<span id="decorationPlay">✧▷</span>
+	<span id="currentTime">0:00</span>
+	<div id="playingWaves"><canvas id="canvas" width="120" height="18" style="width: 100px; height: 18px;"></canvas></div>
+	</div>
+
+	<div class="current-track">
+    	<span id="currentTrackTitle">Follow the white rabbit...</span>
+	</div>
+	
+	<div class="kbps">128</div>
+
+	<div class="kHz">44</div>
+
+	<button class="hideequ" onclick="toggleEQ()">EQ</button>
+
+	<button class="hideply" onclick="togglePlaylist()">PL</button>
+
+	<div class="volumecontainer">
+  	<input type="range" min="0" max="100" value="50" class="volume_slider" id="volumeSlider">
+	</div>
+
+	<div class="leftrightcontainer">
+  	<input type="range" min="-1" max="1" value="0" class="leftright_slider" id="leftrightSlider">
+	</div>
+
+	<audio id="audio" preload="metadata"></audio>
+
+	<div class="progress-bar">
+  	<input type="range" class="progress-slider" id="songProgress" min="0" max="100" step="0.1" value="0">
+	</div>
+
+	<div class="controls">
+
+	<div class="button" id="prevBtn">
+	<div class="icon"> ☄ </div>
+	</div>
+
+	<div class="button" id="playBtn">
+	<div class="icon"> ❀ </div>
+	</div>
+        
+	<div class="button" id="pauseBtn">
+	<div class="icon"> ✿ </div>
+	</div>
+        
+	<div class="button" id="stopBtn">
+	<div class="icon"> ❖ </div>
+	</div>
+        
+	<div class="button" id="nextBtn">
+	<div class="icon"> ➶ </div>
+	</div>
+
+	<div class="btn" id="ejectBtn"></div>
+
+	<div class="btn" id="shuffleBtn">shuf</div>
+
+	<div class="btn" id="loopBtn">loop</div>
+
+	
+	</div> <!-- end of controls -->
+
+<div id="hideeq">
+<div class="equalizer">
+
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="4700" max="22000" step="100" value="4700" data-filter="highShelf" data-param="frequency">
+        <span class="param">70</span>  
+      </div>
+  
+      <div class="range-slider">
+        <input type="range" class="vertical" min="-50" max="50" value="50" data-filter="highShelf" data-param="gain">
+        <span class="param">180</span>  
+      </div>
+    </div>
+  </div>
+    
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="35" max="220" step="1" value="35" data-filter="lowShelf" data-param="frequency">
+        <span class="param">320</span>  
+      </div>
+
+      <div class="range-slider">
+        <input type="range" class="vertical" min="-50" max="50" value="50" data-filter="lowShelf" data-param="gain">
+        <span class="param">600</span>  
+      </div>
+    </div>
+  </div>
+      
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="800" max="5900" step="100" value="800" data-filter="highPass" data-param="frequency">
+        <span class="param">1k</span>  
+      </div>
+
+      <div class="range-slider">
+        <input type="range" class="vertical" min="0.7" max="12" step="0.1" value="0.7" data-filter="highPass" data-param="Q">
+        <span class="param">3k</span>  
+      </div>
+    </div>
+  </div>  
+    
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="80" max="1600" step="10" value="880" data-filter="lowPass" data-param="frequency">
+        <span class="param">6k</span>  
+      </div>
+
+      <div class="range-slider">
+        <input type="range" class="vertical" min="0.7" max="12" step="0.1" value="0.7" data-filter="lowPass" data-param="Q">
+        <span class="param">12k</span>  
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sliders">
+      <div class="range-slider">
+        <input type="range" class="vertical" min="80" max="1600" step="10" value="880" data-filter="lowPass" data-param="frequency">
+        <span class="param">14k</span>  
+      </div>
+
+      <div class="range-slider">
+        <input type="range" class="vertical" min="0.7" max="12" step="0.1" value="0.7" data-filter="lowPass" data-param="Q">
+        <span class="param">16k</span>  
+      </div>
+    </div>
+  </div>
+  
+</div> <!-- end of equalizer -->
+
+</div> <!-- end of hideeq -->
+
+<div id="hidepl">
+<div class="playlist-container">
+<div class="playlist-title">where are you now ??</div> 
+<div class="mini"><span>𖦹</span> 
+ <div class="resize"> <span class="maximize">✘</span> </div>
+</div>
+
+
+ <div class="playlist">
+      <ul id="playlist">
+       <li data-title="1. GUMI - Catch You Catch Me" data-src="https://m.manokodu.net/music/catchyou.mp3">1. GUMI - Catch You Catch Me <span class="track-length">3:44</span></li>
+       <li data-title="2. ANZA - Tobira Wo Akete" data-src="https://m.manokodu.net/music/tobira_wo_akete.mp3">2. ANZA - Tobira Wo Akete <span class="track-length">4:40</span></li>
+       <li data-title="3. Chihiro - Honey" data-src="https://m.manokodu.net/music/honey.mp3">3. Chihiro - Honey <span class="track-length">4:18</span></li>
+       <li data-title="4. OST - Sawayakana Asa" data-src="https://m.manokodu.net/music/sawayakana_asa.mp3">4. OST - Sawayakana Asa <span class="track-length">2:44</span></li>
+       <li data-title="5. OST - Shiawase no Sakura Namiki" data-src="https://m.manokodu.net/music/shiawase_no_sakura_namiki.mp3">5. OST - Shiawase no Sakura Namiki <span class="track-length">2:25</span></li>
+       <li data-title="6. Kohmi Hirose - Groovy!" data-src="https://m.manokodu.net/music/groovy.mp3">6. Kohmi Hirose - Groovy! <span class="track-length">4:22</span></li>
+       <li data-title="7. Sakura Tange - Prism" data-src="https://m.manokodu.net/music/prism.mp3">7. Sakura Tange - Prism <span class="track-length">4:41</span></li>
+       <li data-title="8. Maaya Sakamoto - Purachina Platinum" data-src="https://m.manokodu.net/music/purachina_platinum.mp3">8. Maaya Sakamoto - Purachina Platinum <span class="track-length">4:08</span></li>
+       <li data-title="9. Junko Iwao - Yasashisa no Tane" data-src="https://m.manokodu.net/music/yasashisa_no_tane.mp3">9. Junko Iwao - Yasashisa no Tane <span class="track-length">4:17</span></li>
+       <li data-title="10. Yukana Nogami - Kocchi wo Muite" data-src="https://m.manokodu.net/music/kocchi_wo_muite.mp3">10. Yukana Nogami - Kocchi wo Muite <span class="track-length">4:31</span></li>
+       <li data-title="11. Sakura&Kero-chan - Zutto Zutto Zutto" data-src="https://m.manokodu.net/music/zutto_zutto_zutto.mp3">11. Sakura&Kero-chan - Zutto Zutto Zutto <span class="track-length">4:37</span></li>
+       <li data-title="12. GUMI - Hitorijime" data-src="https://m.manokodu.net/music/hitorijime.mp3">12. GUMI - Hitorijime <span class="track-length">4:23</span></li>
+     </ul>
+
+	</div> <!-- playlist -->
+
+	<div class="playlist-footer">
+        	
+
+<div class="button2">
+    <span class="fb-text">+</span>
+    <span class="fb-text">♫</span>
+</div>
+
+<div class="button2">
+    <span class="fb-text">-</span>
+    <span class="fb-text">♫</span>
+</div>
+
+<div class="button2">
+    <span class="fb-text">sel</span>
+    <span class="fb-text"></span>
+</div>
+
+<div class="button2">
+    <span class="fb-text">misc</span>
+    <span class="fb-text"></span>
+</div>
+
+<div class="time-container">
+
+	<div class="f-time">
+	<span  id="totalTime">00:00</span>
+	<span>/</span>
+	<span id="totalPlaylistTime">51:34</span>
+	</div>
+
+</div>
+
+<div class="pl-f-icons">
+	<i class="fas fa-step-backward"></i>
+	<i class="fas fa-play"></i>
+	<i class="fas fa-pause"></i>
+	<i class="fas fa-stop"></i>
+	<i class="fas fa-step-forward"></i>
+	<i class="fas fa-eject"></i>
+	</div>
+
+<div class="button3">
+  <span class="fb-text"></span> 
+  <span class="fb-text">list</span>
+</div>
+
+</div> <!-- end of playlist-footer -->
+
+</div> <!-- end of playlist-container -->
+
+</div> <!-- end of hidepl -->
+
+</div> <!-- end of my-player -->
+
+
+<script>
+
+document.querySelector('.mini span').addEventListener('click', function() {
+    const playlistContainer = document.querySelector('.playlist-container');
+    const playlist = document.querySelector('.playlist');
+    const footer = document.querySelector('.playlist-footer');
+
+    if (playlist.style.display === 'none') {
+        // Expand the container
+        playlist.style.display = 'block';
+        footer.style.display = 'flex';
+        playlistContainer.style.height = 'calc(150px + 4px)';
+    } else {
+        // Minimize the container
+        playlist.style.display = 'none';
+        footer.style.display = 'none';
+        playlistContainer.style.height = '32px';
+    }
+});
+
+
+const expandButton = document.querySelector('.maximize');
+const resizeHandle = document.querySelector('.resize');
+const playlistContainer = document.querySelector('.playlist-container');
+const playlist = document.querySelector('.playlist');
+const footer = document.querySelector('.playlist-footer');
+
+let isResizing = false;
+let isExpanded = false;
+
+
+expandButton.addEventListener('click', function() {
+    if (!isExpanded) {
+        playlistContainer.style.height = '300px'; 
+        playlist.style.height = 'calc(100% - ' + (footer.offsetHeight + 30) + 'px)';
+        isExpanded = true;
+    } else {
+        playlistContainer.style.height = '150px';
+        playlist.style.height = '62px';
+        isExpanded = false;
+    }
+});
+
+
+resizeHandle.addEventListener('mousedown', function(e) {
+    isResizing = true;
+    document.body.style.cursor = 'se-resize';
+});
+
+document.addEventListener('mousemove', function(e) {
+    if (!isResizing) return;
+
+
+    const newHeight = window.innerHeight - e.clientY - footer.offsetHeight;
+
+
+    if (newHeight > 53) {
+        playlistContainer.style.height = newHeight + 'px';
+        playlist.style.height = newHeight - footer.offsetHeight - 30 + 'px';
+    }
+});
+
+document.addEventListener('mouseup', function() {
+    isResizing = false;
+    document.body.style.cursor = 'default';
+});
+
+
+
+function togglePlaylist() {
+  var x = document.getElementById("hidepl");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function toggleEQ() {
+  var x = document.getElementById("hideeq");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+  const resizableDiv = document.querySelector(".my-player");
+  const expander = document.querySelector(".expander");
+
+  expander.addEventListener("mousedown", function (e) {
+    e.preventDefault();
+
+    const onMouseMove = (e) => {
+      const newHeight = e.clientY - resizableDiv.getBoundingClientRect().top;
+      if (newHeight >= 75 && newHeight <= 430) {
+        resizableDiv.style.height = `${newHeight}px`;
+      }
+    };
+
+    const onMouseUp = () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('audio');
+    const playlistItems = document.querySelectorAll('#playlist li');
+    const prevBtn = document.getElementById('prevBtn');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const shuffleBtn = document.getElementById('shuffleBtn');
+    const loopBtn = document.getElementById('loopBtn');
+    const currentTrackTitle = document.getElementById('currentTrackTitle');
+    const currentTime = document.getElementById('currentTime');
+    const totalTime = document.getElementById('totalTime');
+    const songProgress = document.getElementById('songProgress');
+    const volumeSlider = document.getElementById('volumeSlider');
+
+    let currentTrackIndex = 0;
+    let tracks = Array.from(playlistItems);
+    let isShuffle = false;
+    let isLoop = false;
+
+    function loadTrack(index) {
+        const selectedTrack = tracks[index];
+        if (!selectedTrack) return;
+
+    playlistItems.forEach(item => {
+        item.classList.remove('active');
+    });
+
+    selectedTrack.classList.add('active');
+
+        const songSrc = selectedTrack.getAttribute('data-src');
+        const songTitle = selectedTrack.getAttribute('data-title');
+
+        audio.src = songSrc;
+        audio.load();
+        audio.play().catch(error => {
+            console.error('Playback error:', error);
+        });
+
+        currentTrackTitle.textContent = songTitle;
+        updateUI();
+    }
+
+    function updateUI() {
+        if (!isNaN(audio.duration)) {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            songProgress.value = progress;
+            currentTime.textContent = formatTime(audio.currentTime);
+            totalTime.textContent = formatTime(audio.duration);
+        }
+    }
+
+    function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+
+    function playTrack(index) {
+        if (index < 0 || index >= tracks.length) return;
+        currentTrackIndex = index;
+        loadTrack(currentTrackIndex);
+    }
+
+    playlistItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            playTrack(index);
+        });
+    });
+
+    audio.addEventListener('timeupdate', updateUI);
+
+    audio.addEventListener('ended', () => {
+        if (isLoop) {
+            loadTrack(currentTrackIndex);
+        } else {
+            currentTrackIndex = isShuffle 
+                ? Math.floor(Math.random() * tracks.length) 
+                : (currentTrackIndex + 1) % tracks.length;
+            loadTrack(currentTrackIndex);
+        }
+    });
+
+    songProgress.addEventListener('input', () => {
+        const newTime = (songProgress.value / 100) * audio.duration;
+        audio.currentTime = newTime;
+    });
+
+    volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value / 100;
+    });
+
+    playBtn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            stopBlinking();
+        }
+    });
+
+    pauseBtn.addEventListener("click", () => {
+        if (!audio.paused) {
+            audio.pause();
+            blinkCurrentTime();
+        }
+    });
+
+    stopBtn.addEventListener('click', () => {
+        audio.pause();
+        audio.currentTime = 0;
+        songProgress.value = 0;
+        currentTime.textContent = formatTime(0);
+        currentTrackTitle.textContent = "arigatou";
+        stopBlinking();
+	playlistItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    });
+
+    function blinkCurrentTime() {
+        currentTime.classList.add('blink');
+    }
+
+    function stopBlinking() {
+        currentTime.classList.remove('blink');
+    }
+
+ 
+    prevBtn.addEventListener('click', () => {
+        if (isShuffle) {
+            currentTrackIndex = Math.floor(Math.random() * tracks.length);
+        } else {
+            currentTrackIndex = (currentTrackIndex > 0) ? currentTrackIndex - 1 : tracks.length - 1;
+        }
+        loadTrack(currentTrackIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (isShuffle) {
+            currentTrackIndex = Math.floor(Math.random() * tracks.length);
+        } else {
+            currentTrackIndex = (currentTrackIndex < tracks.length - 1) ? currentTrackIndex + 1 : (isLoop ? 0 : currentTrackIndex);
+        }
+        loadTrack(currentTrackIndex);
+    });
+
+  
+    shuffleBtn.addEventListener('click', () => {
+        isShuffle = !isShuffle;
+        shuffleBtn.classList.toggle('btn-active', isShuffle);
+    });
+
+    loopBtn.addEventListener('click', () => {
+        isLoop = !isLoop;
+        loopBtn.classList.toggle('btn-active', isLoop);
+    });
+
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        #currentTime.blink {
+            animation: blink 1s step-start infinite;
+        }
+        .btn-active {
+            text-shadow: 0 0 5px #e1388b, 0 0 25px #e1388b, 0 0 50px #e1388b, 0 0 200px #e1388b;
+	    border: 3px solid #8c22c1;
+	    border-radius: 50%;
+        }
+    `;
+    document.head.appendChild(style);
+});
+  
+
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const audio = document.getElementById('audio');
+
+canvas.width = 100;
+canvas.height = 30;
+
+const barCount = 16;
+const spacing = 1;
+const totalSpacing = (barCount - 1) * spacing;
+const barWidth = Math.floor((canvas.width - totalSpacing) / barCount);
+const capHeight = 2;
+
+const capYPositions = new Array(barCount).fill(0);
+const currentHeights = new Array(barCount).fill(0);
+
+let isPlaying = false;
+
+function drawFakeBars() {
+  requestAnimationFrame(drawFakeBars);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < barCount; i++) {
+    const x = i * barWidth;
+
+    if (isPlaying) {
+      // Random target height
+      const targetHeight = Math.random() * canvas.height * 0.8 + 5;
+      currentHeights[i] += (targetHeight - currentHeights[i]) * 0.1;
+    } else {
+      // Gradually reduce bar height
+      currentHeights[i] -= 0.5;
+      if (currentHeights[i] < 0) currentHeights[i] = 0;
+    }
+
+    const y = canvas.height - currentHeights[i];
+
+    // Draw bar only if
+    if (currentHeights[i] > 0) {
+  const blockSize = 2; // Height of each block in pixels
+  const spacing = 1;   // Space between blocks
+
+  const blockCount = Math.floor(currentHeights[i] / (blockSize + spacing));
+  const x = i * barWidth;
+  const baseY = canvas.height;
+
+  // Create a gradient that spans from bottom to top of the entire bar
+  const gradient = ctx.createLinearGradient(x, baseY - currentHeights[i], x, baseY);
+  gradient.addColorStop(0, '#8c22c1');  // bottom
+  gradient.addColorStop(0.5, '#26cef2'); // middle
+  gradient.addColorStop(1, '#8c22c1');   // top
+
+  ctx.fillStyle = gradient;
+
+  // Draw the blocks
+  for (let b = 0; b < blockCount; b++) {
+    const y = baseY - (b + 1) * (blockSize + spacing);
+    ctx.fillRect(x, y, barWidth - 2, blockSize);  // Pixel block with gradient
+  }
+}
+
+
+    // Cap logic: cap drops with bars, but always drawn
+    if (capYPositions[i] < currentHeights[i]) {
+      capYPositions[i] = currentHeights[i]; // Jump up
+    } else if (capYPositions[i] > currentHeights[i]) {
+      capYPositions[i] -= 0.4; // Fall slowly
+      if (capYPositions[i] < 0) capYPositions[i] = 0;
+    }
+
+    // Always draw the cap
+    ctx.fillStyle = '#26cef2';
+    ctx.fillRect(x, canvas.height - capYPositions[i] - capHeight, barWidth -2, capHeight);
+  }
+}
+
+audio.addEventListener('play', () => {
+  isPlaying = true;
+  drawFakeBars();
+});
+
+audio.addEventListener('pause', () => {
+  isPlaying = false;
+});
+
+audio.addEventListener('ended', () => {
+  isPlaying = false;
+});
+         
+
+
+</script>
+</body>
+</html>
