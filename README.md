@@ -14,3 +14,6 @@ Rememeber every single part of these are customizeable!!
 Change the fonts, colors, size, features, images, music files, script however you wish~
 
 { If I ever figure out the broken sections then I'll update them }
+
+
+<img src="https://github.com/manokodu/musicplayer/blob/main/musicplayerss.png">
